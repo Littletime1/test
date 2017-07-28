@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script type="text/javascript" src="file:///D|/cs1/min.js"></script>
+<script type="text/javascript" src="file:///D|/cs1/angular-route.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body ng-app="myApp">
+<div class="container" ng-controller="myContr">
+  <nav class="navbar navbar-default">
+      <div class="container-fluid">
+          <div class="navbar-header">
+              <a class="navbar-brand" href="#/">首页</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                  <li><a href="#/web">热血</a></li>
+                  <li><a href="#/other">机战</a></li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+  <div ng-view></div>
+</div>
+<script>
+	var app = angular.module("myApp",["ngRoute"]);
+	app.config(["$routeProvider",function($routeProvide){
+		$routeProvide
+		.when("/",{
+			templateUrl:"home.html",
+			//controller:"homeContr"	
+		})
+		.when("/web",{
+			templateUrl:"list.html",
+			controller:"listContr"	
+		})
+		.when("/view/:id",{
+			templateUrl:"view.html",
+			controller:"viewContr"	
+		})
+		.otherwise({
+			redirectTo:"/"	
+		});
+	}]);
+	app.controller("myContr",function($scope,$http){
+		$http.get("data.php?date="+new Date().getTime()).success(function(mydata){
+			$scope.datas = mydata.person;
+				
+		}).error(function(err){
+			console.log(err);	
+		});	 // 异步执行
+	});
+	app.controller("listContr",function($scope){
+		$scope.clumns = function(e){
+			return e.clumn == "Web前端开发";
+		}
+		console.log($scope.datas.length);
+		$scope.pageSize= 5;
+		$scope.curPage = 0;
+		$scope.pageCout = Math.ceil($scope.datas.length/$scope.pageSize)-1;	 
+		// 执行本段代码的时候不会等到父级控制器中的http请求完成，因为父级的http请求是异步的
+	});
+	app.controller("viewContr",function($scope,$http,$routeParams){
+		var i = $routeParams.id;
+		console.log(i);
+		$http.get("view.php?id="+i).success(function(mydata){
+			$scope.viewData = mydata.person;
+		});
+		
+	})
+	app.filter("trustHtml",function($sce){
+		return function(data){
+			return $sce.trustAsHtml(data);	
+		}	
+	});
+	app.filter("pageStar",function(){
+		return function(e,star){
+			return e.splice(star);
+		}	
+	});
+</script>
+
+<style>
+.pagination-nav .page-nav {
+      border: 1px solid #eeeeee;
+      border-radius: 10px;
+      margin-left: 6px;
+    }
+    .pagination-nav .page-nav .pre-page {
+      width: 0; height: 0;
+      display: inline-block;
+      cursor: pointer;
+      margin-left: 15px;
+      margin-right: 13px;
+      border-right: 12px solid #686868;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+    }
+    .pagination-nav .page-nav .nav-separator {
+      border-right: 1px solid #eeeeee;
+    }
+    .pagination-nav .page-nav .next-page {
+      width: 0; height: 0;
+      display: inline-block;
+      cursor: pointer;
+      margin-left: 20px;
+      margin-right: 12px;
+      border-left: 12px solid #686868;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+    }
+    .pagination-nav .page-nav .disabled {
+      cursor: inherit;
+      border-left-color: #e6e6e6;
+      border-right-color: #e6e6e6;
+    }
+</style>
+
+</body>
+</html>
