@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #cvs{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+<canvas id="cvs" width="500" height="500"></canvas>
+<script>
+
+    //1、获取canvasDOM对象
+    var cvs = document.getElementById('cvs');
+
+    //2、判断兼容性
+    if(cvs.getContext){
+        //3、获取canvas2D画布对象
+        var ctx = cvs.getContext("2d");
+
+        //填充矩形,x,y,w,h
+        ctx.fillRect(100,100,100,100);
+
+        //清除矩形 x,y,w,h 只要覆盖的东西都被清除掉，白色
+        ctx.clearRect(120,120,50,50)
+
+        //边框矩形，x,y,w,h, 默认0.5
+        ctx.strokeRect(50,50,50,50);
+
+        //等比放大(+)或缩小(-)，width/height  = topWidth/topHeight +/- [(bX - sX) * 2]
+
+
+        ctx.strokeRect(280,280,140,140);
+        ctx.strokeRect(300,300,100,100);
+        ctx.strokeRect(320,320,60,60)
+
+        //超出画布，只显示留在画布内的
+        ctx.strokeRect(400,400,500,500);
+
+
+    }else{
+        alert('不兼容')
+    }
+
+</script>
+</body>
+</html>
