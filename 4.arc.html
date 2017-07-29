@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #cvs{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+<canvas id="cvs" width="500" height="500"></canvas>
+<script>
+    var cvs = document.getElementById('cvs');
+    if(cvs.getContext){
+        var ctx = cvs.getContext('2d');
+
+        //圆的xy坐标是中心点
+        ctx.arc(150,150,100,0,360*(Math.PI/180),false);
+        //新路径要新起点
+        ctx.moveTo(110,90);
+        ctx.arc(90,90,20,0,360*(Math.PI/180),false);
+        ctx.moveTo(210,90);
+        ctx.arc(190,90,20,0,360*(Math.PI/180),false);
+        ctx.moveTo(240,150);
+        ctx.arc(150,150,90,0,180*(Math.PI/180),false);
+        ctx.stroke()
+
+    }else{
+
+    }
+</script>
+</body>
+</html>

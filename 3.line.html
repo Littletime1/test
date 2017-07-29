@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #cvs{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+<canvas id="cvs" width="500" height="500"></canvas>
+<script>
+    var cvs = document.getElementById('cvs');
+
+    if(cvs.getContext){
+        var ctx = cvs.getContext('2d');
+
+        //如果绘制的线路径很多，需要用beginPath做分隔
+
+        ctx.beginPath();
+        ctx.moveTo(50,50);
+        // lineTo 从上一条路径，连接到当前路径
+        ctx.lineTo(100,100);
+        //
+        ctx.lineTo(50,100);
+        //描线
+        ctx.stroke();
+        //填充
+//        ctx.fill()
+
+        ctx.beginPath()
+        ctx.moveTo(150,150)
+        ctx.lineTo(200,200)
+        ctx.stroke();
+
+    }else{
+
+    }
+
+</script>
+</body>
+</html>
