@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	<script>
+	window.onload = function(){
+	var list = document.getElementById("test").children;
+	for(var i=0;i<list.length;i++){
+	list[i].onclick = function(){
+		
+		alert(i)
+		
+	}
+	}
+	}
+	</script>
+</head>
+<body>
+<ul id="test">
+<li>这是第一条</li>
+<li>这是第二条</li>
+<li>这是第三条</li>
+</ul>
+</body>
+</html>
