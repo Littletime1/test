@@ -1,0 +1,403 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<link href="css/js1.css" rel="stylesheet" type="text/css">
+<link href="css/js2.css" rel="stylesheet" type="text/css">
+<script>
+window.onload = function(){
+	
+var Pro = document.getElementById("pro");
+var oLi = Pro.getElementsByTagName("li");
+var oMessage1 = document.getElementsByClassName("message1");
+var pic2 = document.getElementsByClassName("pic2")[0];
+var img = pic2.getElementsByTagName("img")[0];
+var time1 = document.getElementsByClassName("time1")[0];
+var oLi1 = time1.getElementsByTagName("li");
+var Img = time1.getElementsByTagName("img");
+var date = new Date();
+var year = date.getFullYear();
+var imgs = ["img/14.jpg","img/15.jpg","img/16.jpg","img/17.jpg"]
+var timer = null;
+for(var i=0;i<oLi.length;i++){
+    oLi[i].index = i;
+	oLi[i].onclick = function(){
+	   oLi[i].style.background = "active";	
+	}
+    oLi[i].onmouseover = function(){
+    for(var i=0;i<oLi.length;i++){
+    oMessage1[i].style.display = "none";
+          }
+    oMessage1[this.index].style.display = "block";
+    }
+  }
+
+var k = 1;
+setInterval(changeImg,1000);
+function changeImg(){
+k++;
+if(k == imgs.length){
+k = 0;	
+}
+img.src = imgs[k];
+}
+
+			
+for(var q=0;q<oLi1.length;q++){
+	oLi1[q].index = q;
+	oLi1[q].onmouseover = function(){
+	for(var q=0;q<oLi1.length;q++){
+	Img[q].style.display = "none";	
+	}
+	Img[this.index].style.display = "block";
+	}
+}
+}
+</script>
+<body>
+<div class="clearfix Nav">
+<div class="nav"><img src="img/1.jpg" style="margin:12px 51px 0 5px;float:left;">
+<div class="nav1">
+<a href="#" target="_blank">政法干警考试网<span>|</span></a>
+<a href="#" target="_blank">中公首页<span>|</span></a>
+<a href="#" target="_blank">面授课程<span>|</span></a>
+<a href="#" target="_blank">图书商城<span>|</span></a>
+<a href="#" target="_blank">网校课程<span>|</span></a>
+<a href="#" target="_blank">联系我们</a>
+</div>
+<h3>400-6300-999</h3>
+</div>
+</div>
+
+
+<div class="pic">
+<div class="pic1">
+<img src="img/3.jpg">
+<img src="img/4.jpg">
+<img src="img/5.jpg">
+</div>
+</div>
+
+<div class="tit">
+<img src="img/6.jpg">
+<p>报考省份</p>
+
+<ul class="province" id="pro">
+<li><a href="#" target="_blank">安徽</a></li>
+<li><a href="#" target="_blank">河南</a></li>
+<li><a href="#" target="_blank">北京</a></li>
+<li><a href="#" target="_blank">天津</a></li>
+<li><a href="#" target="_blank">上海</a></li>
+<li><a href="#" target="_blank">重庆</a></li>
+<li><a href="#" target="_blank">河北</a></li>
+<li><a href="#" target="_blank">山西</a></li>
+<li><a href="#" target="_blank">辽宁</a></li>
+<li><a href="#" target="_blank">吉林</a></li>
+<li><a href="#" target="_blank">黑龙江</a></li>
+<li><a href="#" target="_blank">江苏</a></li>
+<li><a href="#" target="_blank">浙江</a></li>
+<li><a href="#" target="_blank">福建</a></li>
+<li><a href="#" target="_blank">云南</a></li>
+<li><a href="#" target="_blank">贵州</a></li>
+<li><a href="#" target="_blank">四川</a></li>
+<li><a href="#" target="_blank">陕西</a></li>
+</ul>
+
+<div class="clearfix message">
+<div class="triangle">
+</div>
+<div class="message1" style="display:block;">
+<img src="img/7.jpg" style="margin:20px 0 20px 20px;positon:relative;">
+<span style="position:absolute;bottom:217px;color:#fff;font-size:24px;left:38px;">安徽</span>
+<dl>
+<dt>准考证打印时间&nbsp:&nbsp<span>9月21日-9月23日</span></dt>
+<dd>【安徽政法干警考试公告】【考试大纲】【考前冲刺题】</dd>
+</dl>
+<div class="print">
+<a href="#" target="_blank">准考证打印入口</a>
+</div>
+</div>
+
+<div class="message1">
+<img src="img/7.jpg" style="margin:20px 0 20px 20px;">
+<span style="position:absolute;bottom:217px;color:#fff;font-size:24px;left:38px;">河南</span>
+<dl>
+<dt>准考证打印时间&nbsp:&nbsp<span>9月21日-9月23日</span></dt>
+<dd>【河南政法干警考试公告】【考试大纲】【考前冲刺题】</dd>
+</dl>
+<div class="print">
+<a href="#" target="_blank">准考证打印入口</a>
+</div>
+</div>
+
+<div class="message1">
+<img src="img/7.jpg" style="margin:20px 0 20px 20px;">
+<span style="position:absolute;bottom:217px;color:#fff;font-size:24px;left:38px;">北京</span>
+<dl>
+<dt>准考证打印时间&nbsp:&nbsp<span>9月21日-9月23日</span></dt>
+<dd>【北京政法干警考试公告】【考试大纲】【考前冲刺题】</dd>
+</dl>
+<div class="print">
+<a href="#" target="_blank">准考证打印入口</a>
+</div>
+</div>
+
+<div class="message1">
+<img src="img/7.jpg" style="margin:20px 0 20px 20px;">
+<span style="position:absolute;bottom:217px;color:#fff;font-size:24px;left:38px;">天津</span>
+<dl>
+<dt>准考证打印时间&nbsp:&nbsp<span>9月21日-9月23日</span></dt>
+<dd>【天津政法干警考试公告】【考试大纲】【考前冲刺题】</dd>
+</dl>
+<div class="print">
+<a href="#" target="_blank">准考证打印入口</a>
+</div>
+</div>
+
+<div class="message1">
+<img src="img/7.jpg" style="margin:20px 0 20px 20px;">
+<span style="position:absolute;bottom:217px;color:#fff;font-size:24px;left:38px;">上海</span>
+<dl>
+<dt>准考证打印时间&nbsp:&nbsp<span>9月21日-9月23日</span></dt>
+<dd>【上海政法干警考试公告】【考试大纲】【考前冲刺题】</dd>
+</dl>
+<div class="print">
+<a href="#" target="_blank">准考证打印入口</a>
+</div>
+</div>
+
+<div class="message1">
+<img src="img/7.jpg" style="margin:20px 0 20px 20px;">
+<span style="position:absolute;bottom:217px;color:#fff;font-size:24px;left:38px;">重庆</span>
+<dl>
+<dt>准考证打印时间&nbsp:&nbsp<span>9月21日-9月23日</span></dt>
+<dd>【重庆政法干警考试公告】【考试大纲】【考前冲刺题】</dd>
+</dl>
+<div class="print">
+<a href="#" target="_blank">准考证打印入口</a>
+</div>
+</div>
+
+<div class="message1">
+<img src="img/7.jpg" style="margin:20px 0 20px 20px;">
+<span style="position:absolute;bottom:217px;color:#fff;font-size:24px;left:38px;">河北</span>
+<dl>
+<dt>准考证打印时间&nbsp:&nbsp<span>9月21日-9月23日</span></dt>
+<dd>【河北政法干警考试公告】【考试大纲】【考前冲刺题】</dd>
+</dl>
+<div class="print">
+<a href="#" target="_blank">准考证打印入口</a>
+</div>
+</div>
+
+<div class="message1">
+<img src="img/7.jpg" style="margin:20px 0 20px 20px;">
+<span style="position:absolute;bottom:217px;color:#fff;font-size:24px;left:38px;">山西</span>
+<dl>
+<dt>准考证打印时间&nbsp:&nbsp<span>9月21日-9月23日</span></dt>
+<dd>【山西政法干警考试公告】【考试大纲】【考前冲刺题】</dd>
+</dl>
+<div class="print">
+<a href="#" target="_blank">准考证打印入口</a>
+</div>
+</div>
+
+<div class="message1">
+<img src="img/7.jpg" style="margin:20px 0 20px 20px;">
+<span style="position:absolute;bottom:217px;color:#fff;font-size:24px;left:38px;">辽宁</span>
+<dl>
+<dt>准考证打印时间&nbsp:&nbsp<span>9月21日-9月23日</span></dt>
+<dd>【辽宁政法干警考试公告】【考试大纲】【考前冲刺题】</dd>
+</dl>
+<div class="print">
+<a href="#" target="_blank">准考证打印入口</a>
+</div>
+</div>
+
+<div class="message1">
+<img src="img/7.jpg" style="margin:20px 0 20px 20px;">
+<span style="position:absolute;bottom:217px;color:#fff;font-size:24px;left:38px;">吉林</span>
+<dl>
+<dt>准考证打印时间&nbsp:&nbsp<span>9月21日-9月23日</span></dt>
+<dd>【吉林政法干警考试公告】【考试大纲】【考前冲刺题】</dd>
+</dl>
+<div class="print">
+<a href="#" target="_blank">准考证打印入口</a>
+</div>
+</div>
+
+<div class="message1">
+<img src="img/7.jpg" style="margin:20px 0 20px 20px;">
+<span style="position:absolute;bottom:217px;color:#fff;font-size:24px;left:38px;">山东</span>
+<dl>
+<dt>准考证打印时间&nbsp:&nbsp<span>9月21日-9月23日</span></dt>
+<dd>【山东政法干警考试公告】【考试大纲】【考前冲刺题】</dd>
+</dl>
+<div class="print">
+<a href="#" target="_blank">准考证打印入口</a>
+</div>
+</div>
+
+<div class="message1">
+<img src="img/7.jpg" style="margin:20px 0 20px 20px;">
+<span style="position:absolute;bottom:217px;color:#fff;font-size:24px;left:38px;">江苏</span>
+<dl>
+<dt>准考证打印时间&nbsp:&nbsp<span>9月21日-9月23日</span></dt>
+<dd>【江苏政法干警考试公告】【考试大纲】【考前冲刺题】</dd>
+</dl>
+<div class="print">
+<a href="#" target="_blank">准考证打印入口</a>
+</div>
+</div>
+
+<div class="message1">
+<img src="img/7.jpg" style="margin:20px 0 20px 20px;">
+<span style="position:absolute;bottom:217px;color:#fff;font-size:24px;left:38px;">浙江</span>
+<dl>
+<dt>准考证打印时间&nbsp:&nbsp<span>9月21日-9月23日</span></dt>
+<dd>【浙江政法干警考试公告】【考试大纲】【考前冲刺题】</dd>
+</dl>
+<div class="print">
+<a href="#" target="_blank">准考证打印入口</a>
+</div>
+</div>
+
+<div class="message1">
+<img src="img/7.jpg" style="margin:20px 0 20px 20px;">
+<span style="position:absolute;bottom:217px;color:#fff;font-size:24px;left:38px;">福建</span>
+<dl>
+<dt>准考证打印时间&nbsp:&nbsp<span>9月21日-9月23日</span></dt>
+<dd>【福建政法干警考试公告】【考试大纲】【考前冲刺题】</dd>
+</dl>
+<div class="print">
+<a href="#" target="_blank">准考证打印入口</a>
+</div>
+</div>
+
+<div class="message1">
+<img src="img/7.jpg" style="margin:20px 0 20px 20px;">
+<span style="position:absolute;bottom:217px;color:#fff;font-size:24px;left:38px;">云南</span>
+<dl>
+<dt>准考证打印时间&nbsp:&nbsp<span>9月21日-9月23日</span></dt>
+<dd>【云南政法干警考试公告】【考试大纲】【考前冲刺题】</dd>
+</dl>
+<div class="print">
+<a href="#" target="_blank">准考证打印入口</a>
+</div>
+</div>
+
+<div class="message1">
+<img src="img/7.jpg" style="margin:20px 0 20px 20px;">
+<span style="position:absolute;bottom:217px;color:#fff;font-size:24px;left:38px;">贵州</span>
+<dl>
+<dt>准考证打印时间&nbsp:&nbsp<span>9月21日-9月23日</span></dt>
+<dd>【贵州政法干警考试公告】【考试大纲】【考前冲刺题】</dd>
+</dl>
+<div class="print">
+<a href="#" target="_blank">准考证打印入口</a>
+</div>
+</div>
+
+<div class="message1">
+<img src="img/7.jpg" style="margin:20px 0 20px 20px;">
+<span style="position:absolute;bottom:217px;color:#fff;font-size:24px;left:38px;">四川</span>
+<dl>
+<dt>准考证打印时间&nbsp:&nbsp<span>9月21日-9月23日</span></dt>
+<dd>【四川政法干警考试公告】【考试大纲】【考前冲刺题】</dd>
+</dl>
+<div class="print">
+<a href="#" target="_blank">准考证打印入口</a>
+</div>
+</div>
+
+<div class="message1">
+<img src="img/7.jpg" style="margin:20px 0 20px 20px;">
+<span style="position:absolute;bottom:217px;color:#fff;font-size:24px;left:38px;">陕西</span>
+<dl>
+<dt>准考证打印时间&nbsp:&nbsp<span>9月21日-9月23日</span></dt>
+<dd>【陕西政法干警考试公告】【考试大纲】【考前冲刺题】</dd>
+</dl>
+<div class="print">
+<a href="#" target="_blank">准考证打印入口</a>
+</div>
+</div>
+
+<div class="pic2">
+<img src="img/14.jpg" alt="" style="width:415px;height:265px;">
+</div>
+</div>
+</div>
+
+<div class="clearfix pic3">
+<div class="tit1">
+<img src="img/9.jpg" style="width:1000px;margin:58px auto;">
+<p>免费享福利 考前大放送</p>
+<div style="float:left;">
+<img src="img/10.jpg">
+<a href="#" target="_blank" style="font-size:27px;position:absolute;bottom:153px;left:402px;">想听就听 想学就学</a>
+</div>
+
+<div class="time">
+<ul class="time1">
+<li><img src="img/11.jpg" style="position:absolute;top:23px;left:10px;">  
+<a href="#" target="_blank">8月5日：陕西政法干警专项备考免费讲座（行测-逻辑判断）</a></li>
+<li><img src="img/11.jpg" style="position:absolute;top:65px;left:10px;">
+<a href="#" target="_blank">8月15日：陕西政法干警专项备考免费讲座（行测-逻辑判断）</a></li>
+<li><img src="img/11.jpg" style="position:absolute;top:108px;left:10px;">
+<a href="#" target="_blank">8月25日：陕西政法干警专项备考免费讲座（行测-逻辑判断）</a></li>
+<li><img src="img/11.jpg" style="position:absolute;bottom:53px;left:10px;">
+<a href="#" target="_blank">9月5日：陕西政法干警专项备考免费讲座（行测-逻辑判断）</a></li>
+<li><img src="img/11.jpg" style="position:absolute;bottom:10px;left:10px;">
+<a href="#" target="_blank">9月15日：陕西政法干警专项备考免费讲座（行测-逻辑判断）</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="tit2">
+<div style="width:1000px;margin:58px auto; text-align:center;line-height:47px;">
+    <div class="tit2_tit02">临考冲刺 祝你成功</div>
+</div>
+
+<table>
+  <tr>
+    <td style="width:165px;">成警实战冲刺班</td>
+    <td style="width:135px;background:#eee;line-height:29px;">系统精讲<br>专项提升<br/>讲练结合<br/>封闭测试<br/>网校+面试</td>
+    <td style="width:340px;text-align:left;padding-left:11px;line-height:29px;">笔试:39天21晚（19天+11天11晚+9天10晚）<br/>面试:一般为7天7晚或6天6晚</td>
+    <td style="width:360px;text-align:left;background:#eee;padding-left:20px;line-height:28px;">1、战线较长,适合备考时间比较充裕<br/>的学员;<br/>2、对理论知识熟练运用程度比较弱,<br/>想要通过大量的题目训练来进行复习;<br/>3、重视题海训练,善于总结。</td>
+    <td style="width:103px;padding-top:18px;"><span>咨询</span><span>购买</span></td>
+  </tr>
+</table>
+</div>
+
+<div class="footer">
+<div class="footer1">
+<ul class="introduce">
+<li>中公简介<span>|</span></li>
+<li>中公荣誉<span>|</span></li>
+<li>社会责任<span>|</span></li>
+<li>媒体聚焦<span>|</span></li>
+<li>联系我们<span>|</span></li>
+<li>版权声明<span>|</span></li>
+<li>支付方式<span>|</span></li>
+<li>友情链接<span>|</span></li>
+<li>网站导航<span>|</span></li>
+<li>加入我们</li>
+</ul><br/>
+<h4>Copyright©1999-2017 北京中公教育科技股份有限公司 .All Rights Reserved</br>
+全国统一报名专线：400-6300-999 网校报名：400-900-8885 图书订购：400-6509-705</br>
+京ICP备10218183号 京ICP证161188号 京公网安备 11010802020593号 出版物经营许可证新出发京批字第直130052号 站长统计</h4>
+</div>
+</div>
+
+<div class="nav2">
+<p class="nav2_01">400-6330-999</p>
+<p class="nav2_02"><img src="img/20.jpg"/>课程咨询</p>
+<p class="nav2_03"><img src="img/18.jpg"/></p>
+<p class="nav2_04"><img src="img/19.jpg"/></p>
+</div>
+
+</body>
+</html>
