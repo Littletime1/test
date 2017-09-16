@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //  var a = 10
+        //函数  保存一段代码
+        // 声明函数关键字 函数名字（参数列表）{ 函数代码块}
+
+        //1.声明 保存了一段代码，如果没有调用，是不会运行
+        function  fun() {
+            //代码块
+            alert("a");
+        }
+        //2.调用 函数名（参数列表）;
+        fun();
+
+
+        //1.不带参数的函数 带目的  （重用 ，复用）
+        //计算两个数之间的和 100-1000
+
+
+        function sum() {
+            var sum = 0;
+            //计算100 -1000 之间的和f
+            for(var i = 100;i <= 1000; i++){
+                sum += i;
+            }
+            alert(sum);
+        }
+
+        //调用
+        sum();
+        sum();
+
+        function  fun1() {
+            sum();
+        }
+
+    function  fun2() {
+        fun1();
+    }
+    fun2();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
