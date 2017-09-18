@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="reset.css"/>
+    <script src="new.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        *{margin:0;padding:0;}
+        #bos{width:750px;height:500px;margin:100px auto;border:2px solid red;position:relative;overflow: hidden;}
+        #div{}
+        #ul1{width:3000px;height:500px;position:relative;}
+        #ul1 li,#ul3 li{float:left;}
+        #but2{right:0px;}
+        button{cursor:pointer;position:absolute;top:50%;margin-top:-20px;
+        height:40px;width:30px;color:#fff;background:red;font-size:28px;}
+        #ul2{height:0px;width:750px;position:relative;
+        text-align:center;/*display:none;*/}
+        #ul2 li{filter: alpha(opacity=0);background:rgba(0,0,0,0.4);position:absolute;bottom:-80px;width:750px;height:80px;font:bold 18px/20px "微软雅黑";color:#fff;margin-top:18px;}
+        #ul2 li p{height:80px;font:bold 18px/20px "微软雅黑";color:#fff;margin-top:18px;}
+        #ul3{position:absolute;bottom:30px;left:10px;cursor:pointer;}
+        #ul3 li{margin-left:8px;width:30px;height:30px;line-height:30px;
+        font-size:20px;border-radius:50%;background:blue;color:#fff;text-align:center;}
+        #ul3 li.active{background:red;}
+    </style>
+    <script>
+        window.onload = function () {
+        	var oDiv1 = document.getElementById("bos");
+        	var oU1 = document.getElementById("ul1");
+        	var oLi1 = oU1.getElementsByTagName("li");
+        	var oU2 = document.getElementById("ul2");
+        	var oU3 = document.getElementById("ul3");
+        	var oLi3= oU3.getElementsByTagName("li");
+        	var oLi2= oU2.getElementsByTagName("li");
+        	var p =  document.getElementsByTagName("p");
+        	var but= document.getElementsByTagName("button");
+        	var img= document.getElementsByTagName("img")[0];
+        	var imgs = ["img/1.jpg","img/2.jpg","img/3.jpg","img/1.jpg"];
+            var j=0;
+            var tag=0;
+                        
+            oDiv1.onmouseover = function(){
+            	clearInterval(sTop);
+            }
+            oDiv1.onmouseout = function(){
+               sTop = setInterval(fun,3000);
+            }
+            var sTop = setInterval(fun,3000);
+            function fun() {
+                tag++;
+                if(tag>=4){
+                	tag=1;
+                	oU1.style.left=0;
+                }
+                for(var t = 0;t<oLi3.length;t++){
+                    oLi3[t].className = "";
+                    oLi2[t].style.bottom="-80px";
+                }
+                oLi3[tag-1].className="active";
+                move(oU1,10,-tag*750,"left");
+                sMove(oLi2[tag-1],{"bottom":0});
+                
+            }
+            for(var i = 0;i < oLi3.length;i++){
+                oLi3[i].index = i;
+                oLi3[i].onclick = function () {
+                    for(var t = 0;t<oLi3.length;t++){
+                        oLi3[t].className = "";
+                    }
+                    this.className = "active";
+//                    img.src="img/"+(this.index+1)+".jpg";
+					tag = this.index
+//                  cImg(tag);
+                    
+                }
+            }
+
+			function  cImg(index) {
+				for(var k = 0;k<oLi3.length;k++){
+					oLi3[k].className = "";
+				}
+				oLi3[index].className = "active";
+//				img.src = imgs[index];
+			}
+     //左右按钮
+			but[0].onclick = function () {
+                tag = tag - 1;
+                if(tag < 0){tag = imgs.length-2;}  //3
+
+                for(var t = 0;t<oLi3.length;t++){
+                    oLi2[t].style.bottom="-80px";
+                }
+				cImg(tag);
+                sMove(oLi2[tag],{"bottom":0});
+				sMove(oU1,{"left":-tag*750})
+
+            }
+            but[1].onclick = function () {
+				clearInterval(sTop);
+                tag = tag + 1;
+                if(tag == imgs.length-1){tag = 0;}
+                cImg(tag);
+				for(var t = 0;t<oLi3.length;t++){
+                    oLi2[t].style.bottom="-80px";
+                }
+				sMove(oLi2[tag],{"bottom":0});
+				sMove(oU1,{"left":-tag*750});
+            };
+
+        }
+    </script>
+</head>
+<body>
+	<div id="bos">
+		<div id="div">
+		    <ul id="ul1">
+		        <li><img src="img/1.jpg" alt="" width="750" height="500"></li>
+		        <li><img src="img/2.jpg" alt="" width="750" height="500"></li>
+		        <li><img src="img/3.jpg" alt="" width="750" height="500"></li>
+		        <li><img src="img/1.jpg" alt="" width="750" height="500"></li>
+		    </ul>
+		</div>
+		<button id="but1">&lt;</button><button id="but2">&gt;</button>
+		<ul id="ul2">
+			<li><p>图片一<br>图片描述</p></li>
+			<li><p>图片二<br>图片描述</p></li>
+			<li><p>图片三<br>图片描述</p></li>
+		</ul>
+		<ul id="ul3">
+			<li class="active">1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</div>
+</body>
+</html>
