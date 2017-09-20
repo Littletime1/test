@@ -1,0 +1,48 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>无标题文档</title>
+</head>
+<script>
+    /*
+     onkeyup 按键抬起
+     */
+    window.onload = function()
+    {
+
+        var oInp1 = document.getElementById('text1');
+        var oUl1 = document.getElementById('ul1');
+
+        oInp1.onkeyup = function(ev)
+        {
+            var ev = ev || event;
+            //alert( oInp1.value );
+
+            var oLi = document.createElement('li');
+            oLi.innerHTML = oInp1.value;
+
+            if( ev.keyCode == 13 && ev.ctrlKey )//敲回车添加 也可以按住ctrl+enter && ev.ctrlKey
+            {
+                if( oUl1.children[0] )//判断是否有第一条留言
+                {
+                    oUl1.insertBefore(oLi,oUl1.children[0]);
+                }
+                else
+                {
+                    oUl1.appendChild( oLi );
+                };
+            };
+
+        };
+
+    };
+</script>
+<body>
+<input type="text" id="text1">
+<ul id="ul1">
+
+</ul>
+</body>
+</html>
