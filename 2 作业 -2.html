@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+*{margin:0;padding:0;list-style:none;}
+#showBox{position:relative;width:400px;height:250px;border:2px solid red;margin:50px auto;overflow:hidden;}
+#ulImg img{display:block;border:none;}
+#ulImg{height:250px;width:1200px;position:absolute;}
+#ulImg li{float:left;position:relative;text-align:center;font-size:16px;}
+#ulImg li h2{font-size:16px;}
+#ulImg li div{height:40px;padding:20px 0;background:rgba(0,0,0,0.6);color:#fff;width:100%;position:absolute;bottom:-80px;}
+
+#aBtn{position:absolute;bottom:20px;left:20px;}
+#aBtn li{float:left;width:20px;height:20px;background:blue;color:#fff;text-align:center;line-height:20px;margin-right:10px;cursor:pointer;}
+#aBtn li.active{background:red;}
+
+.aS{display:block;width:30px;height:50px;background:red;color:#fff;line-height:50px;text-align:center;text-decoration:none;position:absolute;top:40%;z-index:10;}
+#prev{left:0;}
+#next{right:0;}
+
+</style>
+<script src="jq.js"></script>
+<body>
+<div id="showBox">
+	<a href="javascript:;" id="prev" class="aS">&lt;</a>
+	<a href="javascript:;" id="next" class="aS">&gt;</a>
+	<ul id="ulImg">
+    	<li>
+        	<img src="img/1.jpg">
+            <div style="bottom:0;">
+            	<h2>图片一</h2>
+                <p>图片描述</p>
+            </div>
+        </li><li>
+        	<img src="img/2.jpg">
+            <div>
+            	<h2>图片二</h2>
+                <p>图片描述</p>
+            </div>
+        </li><li>
+        	<img src="img/3.jpg">
+            <div>
+            	<h2>图片三</h2>
+                <p>图片描述</p>
+            </div>
+        </li>
+    </ul>
+    <ul id="aBtn">
+    	<li class="active">1</li>
+    	<li>2</li>
+    	<li>3</li>
+    </ul>
+</div>
+<script>
+window.onload = function()
+{
+	var oUlBtn = document.getElementById('aBtn');
+	var oBox = document.getElementById('showBox');
+	var oUlPic = document.getElementById('ulImg');
+	var aBtn = oUlBtn.getElementsByTagName('li');
+	
+	var prev = document.getElementById('prev');
+	var next = document.getElementById('next');
+	
+	var aDiv = oUlPic.getElementsByTagName('div');
+	
+	oUlPic.innerHTML += oUlPic.innerHTML;
+	oUlPic.style.width = 400*oUlPic.getElementsByTagName('li').length+'px';
+	
+	var now = 0;
+	var timer = null;
+	
+	for(var i=0;i<aBtn.length;i++)
+	{
+		aBtn[i].index = i;
+		aBtn[i].onclick = function()
+		{
+			now = this.index-1;
+			//now--;
+			nextFn();
+		};
+	};
+	
+	function nextFn()
+	{
+		
+		if(now==aBtn.length)
+		{
+			now = 1;
+			oUlPic.style.left = 0;
+		}
+		else
+		{
+			now++;
+		};
+		autoPlay();
+		
+	};
+	function prevFn()
+	{
+		if(now>0)
+		{
+			now--;
+		}
+		else
+		{
+			now = aBtn.length-1;
+			oUlPic.style.left = -400*aBtn.length+'px';
+		};
+		autoPlay();
+	};
+	
+	function autoPlay()
+	{
+		//now++;
+		
+		
+		for(var i=0;i<aBtn.length;i++)
+		{
+			aBtn[i].className = '';
+		};
+		
+		aDiv[now].style.bottom = '-80px';
+		aDiv[0].style.bottom = '-80px';
+		sMove(oUlPic,{'left':-400*now},function(){
+			
+			aDiv[now].style.bottom = '-80px';
+			
+			sMove(aDiv[now],{'bottom':0},function(){
+
+				
+					setTimeout(function(){
+						sMove(aDiv[now],{'bottom':-80});
+					},1000);
+				
+				
+			});
+			
+		});
+		
+		
+		if(now==aBtn.length)
+		{
+			aBtn[0].className = 'active';
+		}
+		else
+		{
+			aBtn[now].className = 'active';
+		};
+		
+		
+	};
+	
+	timer = setInterval(nextFn,4000);
+	
+	oBox.onmouseover = function()
+	{
+		clearInterval(timer);
+		sMove(aDiv[now],{'bottom':0});
+	};
+	oBox.onmouseout = function()
+	{
+		timer = setInterval(nextFn,4000);
+	
+	};
+	
+	next.onclick = function()
+	{
+		nextFn();
+	};
+	prev.onclick = function()
+	{
+		prevFn();
+	};
+	
+};
+</script>
+</body>
+</html>
