@@ -1,0 +1,262 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+	<style>
+    	
+		/*
+			1.元素选择器
+		
+			对页面上所有同类元素起作用
+			
+				img{}
+				p{}
+				body{}
+				
+			
+			2.群组选择器
+			
+				h1,h2,h3,h4,h5,h6{}
+				
+			
+		*/
+		
+		body{font-size:12px;font-family:"微软雅黑";}
+		body,dl,dd,h1,h2,h3,h4,h5,h6,p{margin:0;}
+		h1,h2,h3,h4,h5,h6{font-weight:normal;font-size:12px; font-family:"微软雅黑";}
+		img{vertical-align:bottom;}
+		ul,ol{margin:0;padding:0;list-style:none;}
+		em,i{font-style:normal;}
+		strong,b{font-weight:normal;}		
+		a{text-decoration:none; color:#333;}
+		
+		
+	
+    </style>
+
+</head>
+
+<body>
+
+
+	<!--
+    	
+        在浏览器中，标签具有默认样式
+        
+        在布局页面时，一般首先对标签样式进行重置， 不使用其默认样式
+            
+    -->
+    
+    <!--
+    	
+        text-decoration: 文本装饰
+        				 none; 
+                         underline 下划线
+                         line-through  中划线
+                         
+                         overline 下划线
+                         
+    -->
+
+
+    <p>p1</p>
+    <p>p1</p>
+
+      <!-- 块 -->
+    <div style="background:red;">11</div>
+    
+    <!--标题-->
+    <h1>标题一</h1> <!-- 一般来说一个页面只有一个h1标签 -->
+    <h2>标题二</h2>
+    <h3>标题三</h3>
+    <h4>标题四</h4>
+    <h5>标题五</h5>
+    <h6>标题六</h6>
+    
+    <!--段落-->
+    <p>段落</p>
+    
+    <!--
+    
+    	图片 【空标记】
+    	
+        alt="替换文本"  图片资源找不到时显示 替换文本
+        
+    -->
+    
+	优就业<img src="pic.jpg" width="600" height="400" alt="招生现场图片"/> 
+    
+    
+    <!--无序列表
+    
+    	ul,li固定写法，直接子元素只能是li
+        	
+    -->
+    
+    <ul>
+    	<li>列表项一</li>
+    	<li>列表项一</li>
+    	<li>列表项一</li>        
+    </ul>
+    
+    <!--	
+   		type=""
+        	disc  实心圆（默认值）
+    		circle 空心圆
+            square 方块
+    
+    -->
+    
+    <!-- 有序列表
+    
+    	ol,li固定写法，直接子元素只能是li
+        
+     -->
+    <ol type="I" >
+    	<li>列表项一</li>
+        <li>列表项一</li>
+        <li>列表项一</li>
+        <li>列表项一</li>
+        <li>列表项一</li>
+    </ol>
+    
+    	<!--
+        	type=""
+            
+            	1、a、A、I、i
+        
+        -->
+    
+    <!--
+		定义列表
+    -->
+   	<dl>
+       	<dt>标题</dt>
+        <dd>详细描述</dd>
+    </dl>
+
+        <!--
+        	
+            语义：标签本身所代表的含义
+        
+        -->
+	
+        <span>文字</span><span>文字</span><span>文字</span> 
+        
+        <br/> <!-- 换行 -->
+        
+        <em>倾斜</em>   
+        <!--
+        	默认倾斜
+        	语义化： 着重强调
+        -->
+        <i>倾斜</i>	
+        	
+           <!--
+            	默认倾斜
+                没有语义
+                
+            -->
+            
+        <strong>加粗</strong>
+        
+        <!--
+        	默认加粗
+            
+        	语义化： 着重强调
+        -->
+        <b>加粗</b>
+       	<!--
+        		默认加粗
+                没有语义
+                
+         -->
+         
+         <!--
+         		
+                超链接
+                	
+                    href="#"  空链接
+                    href="url地址" 跳转链接
+         			
+                    target="_blank" 目标地址的打开方式
+                    				_blank新窗口当开
+                                    _slef 在当前窗口打开（默认）
+                                    	
+         			title=""  标题  显示完整信息
+                    
+                    
+                    1.跳转到其它页面
+                    2.跳转到当前页面的指定位置
+                    
+                    	<a href="#box1"> 锚点链接
+                        <div id="box1"></div>
+                    
+         -->
+         
+   <a href="https://www.baidu.com/" target="_blank" title="百度百度百度百度百度百度百度百度百度百度百度百度百度百度百度百度">百度</a>
+   
+   <!--给图片添加链接-->
+   
+   	 <a href="https://www.baidu.com/" target="_blank">
+    	 <img src="pic.jpg" width="600" height="400" alt="招生现场图片"/> 
+     </a>
+
+     
+         <br/>
+         
+         
+         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<!--       
+		
+         <a href="#box1">box1</a> <a href="#box2">box2</a> <a href="#box3">box2</a>
+         <div id="box1" style="height:600px;background:red;">box1</div>
+         <div id="box2" style="height:600px;background:green;">box2</div>
+         <div id="box3" style="height:600px;background:pink;">box3</div>
+-->        	
+         
+         
+         
+         <!-- html5 已废除-->   
+        <font color="#FF0000" face="微软雅黑">文字</font>
+
+
+
+	<!--
+    
+    	1.块级元素  block
+        
+    		独占一行
+            支持宽高属性
+            
+             布局 大的区块划分
+        
+        2.内联元素（行级元素、行内元素） inline
+       	   可以在一行排列显示
+           本身不具有宽高属性
+           
+             细节处理
+         
+      	   img 内联块     inline-block
+        	
+           可以在一行排列
+           拥有宽高属性
+           
+           
+           代码视图代码折行会被解析 造成空隙
+           
+           
+           
+           
+           
+           
+           
+           
+           
+        
+    
+    -->
+</body>
+</html>
