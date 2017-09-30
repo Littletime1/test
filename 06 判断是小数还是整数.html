@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+
+            var a = 1000;
+            var b = 3.14;
+            parseInt(b) //3
+            parseFloat(b)//3.14
+
+
+
+            if(!(parseInt(b) == parseFloat(b))){
+                alert("小数");
+            }else {
+                alert("整数")
+            }
+
+            if(parseInt(b) < parseFloat(b)){
+                alert("小数")
+            }
+
+        }
+    </script>
+</head>
+<body>
+<input type="text">
+</body>
+</html>
