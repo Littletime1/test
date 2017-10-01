@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+
+            var input = document.getElementsByTagName("input")[0];
+            var but = document.getElementsByTagName("button")[0];
+
+            //3.输入一个三位数，输出每个数字的和  如 123    输出1+2+3 = 6
+            but.onclick = function () {
+                var value = input.value;
+                if(value.length == 3){
+
+                    alert("三位数的和是："+ parseInt(value/100) + "+" + parseInt(value%100/10) +"+"+value%10  + "=" +  (parseInt(value/100) + parseInt(value%100/10)+value%10) );
+
+                }else {
+                    alert("请输入一个三位数");
+                }
+
+            }
+
+
+            //6  10 2
+            var arr = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+            console.log("1000天以后是："+arr[(1000+6)%7]);
+        }
+    </script>
+</head>
+<body>
+<input type="text">
+<button>确定</button>
+</body>
+</html>
