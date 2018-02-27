@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin:0;padding:0;}
+        #box{width:500px;height:300px;padding:20px;border:1px solid gray;position:relative;}
+        .leftBox{float:left;width:300px;height:100px;border:1px solid gray;}
+        #btnShow{position:absolute;top:20px;left:340px;}
+        #showDiv{position:absolute;top:0;left:0;background:black;filter:alpha(opacity=50);opacity:.5;width:100%;height:100%;display:none;}
+        #showEditDiv{position:absolute;width:180px;height:280px;padding:10px;background:white;top:20px;right:20px;display:none;}
+        #showEditDiv h3{height:30px;line-height:30px;}
+        #showEditDiv p a{color:#000;display:inline-block;width:80px;height:25px;line-height:25px;border:1px solid #000;text-align:center;text-decoration:none;margin-bottom:10px;}
+
+
+    </style>
+    <script>
+        window.onload = function () {
+
+            var oBtnShow = document.getElementById('btnShow');
+            var oShowDiv = document.getElementById('showDiv');
+            var oShowEditDiv = document.getElementById('showEditDiv');
+
+            var oLeftBox = document.getElementById('LeftBox');
+
+            var oSize1 = document.getElementById('oSize1');
+            var oSize2 = document.getElementById('oSize2');
+            var oSize3 = document.getElementById('oSize3');
+            var oSize4 = document.getElementById('oSize4');
+
+            var oColor1 = document.getElementById('color1');
+            var oColor2 = document.getElementById('color2');
+            var oColor3 = document.getElementById('color3');
+            var oColor4 = document.getElementById('color4');
+
+            var oBtn1 = document.getElementById('btn1');
+            var oBtn2 = document.getElementById('btn2');
+
+            oBtnShow.onclick = function () {
+
+                oShowDiv.style.display = "block";
+                oShowEditDiv.style.display = "block";
+            }
+
+            oSize1.onmouseover = function () {
+
+                oLeftBox.style.width  = "300px";
+                oLeftBox.style.height = "300px";
+            }
+            oSize2.onmouseover = function () {
+
+                oLeftBox.style.width  = "300px";
+                oLeftBox.style.height = "200px";
+            }
+            oSize3.onmouseover = function () {
+
+                oLeftBox.style.width  = "200px";
+                oLeftBox.style.height = "300px";
+            }
+            oSize4.onmouseover = function () {
+
+                oLeftBox.style.width  = "100px";
+                oLeftBox.style.height = "300px";
+            }
+
+            oColor1.onmouseover = function () {
+
+                oColor2.style.background = "none";
+                oColor3.style.background = "none";
+                oColor4.style.background = "none";
+                oLeftBox.style.background = "#FF0000";
+                oColor1.style.background = "#FF0000";
+            }
+            oColor2.onmouseover = function () {
+                oColor1.style.background = "none";
+                oColor3.style.background = "none";
+                oColor4.style.background = "none";
+                oLeftBox.style.background = "#00FF00";
+                oColor2.style.background = "#00FF00";
+            }
+            oColor3.onmouseover = function () {
+                oColor2.style.background = "none";
+                oColor1.style.background = "none";
+                oColor4.style.background = "none";
+                oLeftBox.style.background = "#0000FF";
+                oColor3.style.background = "#0000FF";
+            }
+            oColor4.onmouseover = function () {
+                oColor2.style.background = "none";
+                oColor3.style.background = "none";
+                oColor1.style.background = "none";
+                oLeftBox.style.background = "#00FFFF";
+                oColor4.style.background = "#00FFFF";
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+
+    <div class="leftBox" id="LeftBox"></div>
+    <input type="button" value="点击改变DIV样式" id="btnShow">
+    <div id="showDiv"></div>
+    <div id="showEditDiv">
+        <h3>大小</h3>
+        <p>
+            <a href="#" id="oSize1">300×300</a>
+            <a href="#" id="oSize2">300×200</a>
+            <a href="#" id="oSize3">200×300</a>
+            <a href="#" id="oSize4">100×300</a>
+        </p>
+        <h3>颜色</h3>
+        <p>
+            <a href="#" id="color1">#FF0000</a>
+            <a href="#" id="color2">#00FF00</a>
+            <a href="#" id="color3">#0000FF</a>
+            <a href="#" id="color4">#00FFFF</a>
+        </p>
+        <input type="button" value="确定" id="btn1">
+        <input type="button" value="取消" id="btn2">
+    </div>
+</div>
+
+</body>
+</html>
