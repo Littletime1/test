@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #cvs{
+            border :1px solid red;
+        }
+    </style>
+</head>
+<body onload="draw()">
+<canvas id="cvs" width="500" height="500"></canvas>
+<script>
+
+    function draw(){
+        var cvs = document.getElementById('cvs');
+        if(cvs.getContext){
+            var ctx =  cvs.getContext('2d');
+
+            ctx.font = "55px Helvetica";
+            //1、内容
+            //2、3  x，y
+            //4、最大宽（可选）
+            ctx.moveTo(0,50);
+            ctx.lineTo(500,50);
+            ctx.stroke();
+            /*
+             alphabetic	默认。文本基线是普通的字母基线。
+             top	文本基线是 em 方框的顶端。。
+             hanging	文本基线是悬挂基线。
+             middle	文本基线是 em 方框的正中。
+             ideographic	文本基线是表意基线。
+             bottom	文本基线是 em 方框的底端。
+             */
+            ctx.textBaseline = "ideographic";
+            //模糊程度，数值
+            ctx.shadowBlur = "5";
+            //模糊样式
+            ctx.shadowColor = "red";
+//            ctx.fillStyle = "red"
+//            ctx.fillRect(150,150,150,50);
+            ctx.fillText("你好吗",50,50);
+//            ctx.strokeText("你好吗",100,100);
+
+        }
+
+    }
+</script>
+</body>
+</html>
