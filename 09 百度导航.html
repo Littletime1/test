@@ -1,0 +1,57 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>百度新闻导航</title>
+    <script src="http://apps.bdimg.com/libs/jquery/1.8.3/jquery.js"></script>
+
+</head>
+
+<body>
+<ul id="list">
+    <div class="slider" style="width:60px;"></div>
+    <li class="home">首页</li>
+    <li>新闻</li>
+    <li>社会新闻</li>
+    <li>汽车</li>
+    <li>家居</li>
+    <li>社会新闻</li>
+    <li>汽车</li>
+    <li>家居</li>
+</ul>
+<style>
+    *{margin:0;padding:0;list-style:none;}
+    #list{height:40px;background:#01204f;margin:50px;text-align:center;position:relative;}
+    #list li{float:left;padding:0 15px;font-weight:bold;color:#fff;font-size:14px;line-height:40px;height:40px;cursor: pointer;position: relative;}
+    #list li.home{background:#c00;}
+    .slider{position:absolute;width:0;height:40px;background:#c00;left:0;top:0;}
+</style>
+</body>
+</html>
+
+<script>
+
+    $('#list li').hover(function(){
+
+        //alert(1);
+
+        var thisLeft = $(this).position().left;  //li的left值  div等会要放的位置
+        var thisWidth = $(this).innerWidth();  //
+
+        //
+        $('.slider').stop(true).animate({"left":thisLeft});
+        $('.slider').width( thisWidth );
+
+    },function(){
+
+        //alert(2);
+        $('.slider').stop(true).animate({"left":0},function(){
+            $('.slider').width( 0 );
+        });
+
+    });
+
+</script>
+
+
