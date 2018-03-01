@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{list-style: none;width: 100px;border: 1px solid #666666;position: fixed;top: 100px;right: 10px;padding: 0px;text-align: center}
+        li{height: 26px;border-bottom: 1px solid skyblue;}
+    </style>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+           //-200
+          $("a").click(function (ev) {
+           var id = $(this)[0].getAttribute("href");
+            console.log( $(this).attr("href"));
+//              ev.preventDefault();
+              $("body,html").animate({"scrollTop":$(id).offset().top},1000);
+;          });
+        });
+    </script>
+</head>
+<body>
+<ul>
+    <li ><a href="#div1" name="div4">新闻一</a></li>
+    <li name="div2"><a href="#div2">新闻二</a></li>
+    <li name="div3"><a href="#div3">新闻二</a></li>
+    <li name="div4"><a href="#div4">新闻二</a></li>
+</ul>
+    <div style="width: 100%;height: 1000px;background: floralwhite" id="div1"></div>
+    <div style="width: 100%;height: 1000px;background: #99FFCC" id="div2"></div>
+    <div style="width: 100%;height: 1000px;background: cornflowerblue"  id="div3"></div>
+    <div style="width: 100%;height: 1000px;background: salmon"  id="div4"></div>
+
+</body>
+</html>
