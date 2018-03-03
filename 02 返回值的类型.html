@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //返回值的类型 = js的数据类型 number（1，2） string（"str"） boolean(true false) function(function (){})
+        //object (object(window document) json({"key":value}) array ([1,"st",{},function(){},[]]) null) undefined
+
+
+        //1.返回数值  计算结果
+        function sum(a,b) {
+            return a+b;
+        } 
+        console.log(sum(10,20));
+        console.log(sum(1,2));
+
+        //返回字符串
+        //["a","b","c","d"]  //abcd
+            function  str(arr) {
+            var str = "";
+            for(var i = 0;i<arr.length;i++){
+                str += arr[i];
+            }
+            return str;
+        }
+       var s = str(["a","b","c","d"]);
+        console.log(s);
+
+        //3.boolean 布尔 判断结果
+        function bool() {
+            var a = 100;
+            var b = 200;
+            return a > b   //回家吃饭，          回家睡觉
+        }
+        var stri = bool() ? "回家吃饭" : "回家睡觉";
+        console.log(stri);
+
+
+        //4.返回函数
+        function  fun1() {
+            console.log("返回函数");
+            return function a() {
+                console.log("我是一个被返回的函数");
+
+            };
+        }
+        //f = function f(){console.log("我是一个被返回的函数");}
+       var f = fun1();
+        console.log(f);
+        //如果一个函数被一个变量接收了， 调用：变量名（）;
+        f();
+        fun1()();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
