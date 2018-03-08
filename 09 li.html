@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #ul1 {background:green;}
+        #ul2 {background:yellow;}
+
+    </style>
+    <script>
+        window.onload=function ()
+        {
+            var oUl1=document.getElementById('ul1');
+            var oBtn=document.getElementById('btn1');
+
+            oBtn.onclick=function ()
+            {
+                var aLi=oUl1.getElementsByTagName('li');
+
+                //aLi.sort();
+                var arr=[];
+
+                for(var i=0;i<aLi.length;i++)
+                {
+                    arr[i]=aLi[i];   //li.
+                }
+
+                arr.sort(function (a, b){  //
+//                    var n1=parseInt(a.innerHTML);
+//                    var n2=parseInt(b.innerHTML);
+
+                    return n1-n2;
+                });
+
+                //alert(arr[0].innerHTML);
+                for(var i=0;i<arr.length;i++)
+                {
+//                    alert('该把'+arr[i].innerHTML+'插入到最后');
+                    oUl1.appendChild(arr[i]);
+                }
+            };
+        };
+    </script>
+
+</head>
+<body>
+    <input id="btn1" type="button" value="排序" />
+    <ul id="ul1">
+        <li>34</li>
+        <li>25</li>
+        <li>9</li>
+        <li>88</li>
+        <li>54</li>
+    </ul>
+
+</body>
+</html>
