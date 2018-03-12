@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #cvs{
+            border : 1px solid red;
+        }
+    </style>
+</head>
+<body onload="draw()">
+<canvas id="cvs" width="500" height="500"></canvas>
+<script>
+
+    function draw(){
+        var cvs = document.getElementById('cvs');
+        if(cvs.getContext){
+            console.log(1);
+            var ctx = cvs.getContext('2d');
+            for(var i =0 ;i<6;i++){
+                for(var j = 0;j<5;j++){
+                    ctx.beginPath();
+                    var x = 15 * i * 5 + 20;
+                    var y = 15 * j * 5;
+                    var r = 10;
+                    var starA = 0;
+                    var endA = 90 * j * (Math.PI/180);
+                    var cl = i%2 == 0 ? false : true;
+                    ctx.arc(x,y,r,starA,endA,cl);
+                    if( i%2 == 0){
+                        ctx.fill();
+                    }else{
+                        ctx.stroke();
+                    }
+                }
+            }
+        }else{
+        }
+    }
+
+</script>
+</body>
+</html>
